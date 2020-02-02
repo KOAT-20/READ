@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {
-  MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink,
-  MDBNavbarToggler, MDBCollapse
-} from 'mdbreact';
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+/* Style */
+import './navigation.scss';
 
 export default class BarNavigation extends Component {
   render () {
@@ -17,6 +16,11 @@ export default class BarNavigation extends Component {
           </MDBNavItem>
           <MDBNavItem>
             <MDBNavLink to='registro_solicitud'>Nueva Solicitud</MDBNavLink>
+          </MDBNavItem>
+        </MDBNavbarNav>
+        <MDBNavbarNav right>
+          <MDBNavItem onClick={this.props.onModal}>
+            <MDBIcon className='icon_user_login' size='2x' icon='user-circle' />
           </MDBNavItem>
         </MDBNavbarNav>
       </MDBNavbar>
