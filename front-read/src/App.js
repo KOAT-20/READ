@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { MDBContainer } from 'mdbreact';
+/* Components */
+import BarNavigation from './components/navigation.js';
 
-class RouterMain extends Component {
+class App extends Component {
   render() {
     if (isWidthUp('sm', this.props.width)) {
       return (
-        <div>
-          hola
-        </div>
+        <Router>
+          <BarNavigation />
+          <MDBContainer className="mt-5 mb-5">
+            hola
+          </MDBContainer>
+        </Router>
       );
     }
     return (
@@ -18,4 +24,4 @@ class RouterMain extends Component {
     );
   }
 }
-export default withWidth()(RouterMain);
+export default withWidth()(App);
