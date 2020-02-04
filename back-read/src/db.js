@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const URI = process.env.MONGO_DB_URI
   ? process.env.MONGO_DB_URI
-  : 'mongodb://localhost/MERNDB_TEST';
+  : 'mongodb://localhost/ReadDB_TEST';
 
 mongoose.connect (URI, {
   useCreateIndex: true,
@@ -13,5 +13,5 @@ mongoose.connect (URI, {
 const connection = mongoose.connection;
 
 connection.once ('open', () => {
-  console.log('DB Connect');
+  console.log('DB_READ Connect');
 })
