@@ -12,7 +12,7 @@ userControl.getUser = async (req, res) => {
 }
 
 userControl.createUser = async (req, res) => {
-  const { firstname, lastname, password } = req.body;
+  const { firstname, lastname, email, password } = req.body;
   const newUser = new userModel({
     firstname,
     lastname,
