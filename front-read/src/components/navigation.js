@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
 /* Style */
-import './navigation.scss';
+import './styles/navigation.scss';
 
 export default class BarNavigation extends Component {
   render () {

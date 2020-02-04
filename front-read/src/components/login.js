@@ -14,11 +14,10 @@ export default class Login extends Component {
           size='2x'
         />
         <MDBModal isOpen={this.props.modal} toggle={this.props.onModal} centered>
-          <MDBModalHeader toggle={this.props.onModal}>MDBModal title</MDBModalHeader>
+          <MDBModalHeader toggle={this.props.onModal}>Sign In</MDBModalHeader>
           <MDBModalBody>
             <form>
-              <p className="h4 text-center py-4">Sign In</p>
-              <div className="grey-text">
+              <div className="grey-text ml-5 mr-5 mt-5">
                 <MDBInput
                   label="Your email"
                   icon="envelope"
@@ -35,14 +34,15 @@ export default class Login extends Component {
                   type="password"
                   validate
                 />
-              </div>
-              <div className='text-center'>
-                <a href='/registro'>Registrarse</a>
-              </div>
-              <div className="text-center py-4 mt-3">
-                <MDBBtn color="cyan" type="submit">
-                  Register
-                </MDBBtn>
+                <div className='float-left'>
+                  <a href='/registro'>Registrarse</a><br/>
+                  <a href='/'>¿Olvido su contraseña?</a>
+                </div>
+                <div className="float-right">
+                  <MDBBtn color="cyan" type="submit">
+                    Login
+                  </MDBBtn>
+                </div>
               </div>
             </form>
           </MDBModalBody>
