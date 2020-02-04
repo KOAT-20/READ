@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json());
 // Routes
 app.get('/', (req, res) => res.send('Route Main'))
-// app.use('/api/users', require('./routes/users.js'));
-// app.use('/api/notes', require('./routes/notes.js'));
+app.use('/api/users', require('./routes/users.js'));
 
 module.exports = app;
