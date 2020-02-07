@@ -4,7 +4,6 @@ import {
 } from 'mdbreact';
 import axios from 'axios';
 
-
 export default class Register extends Component {
   state = {
     firstname: '',
@@ -94,7 +93,7 @@ export default class Register extends Component {
                     </MDBCol>
                 </MDBRow>
                 <div className='text-center mt-4'>
-                  <MDBBtn type='submit' className='w-50'>Enviar</MDBBtn>
+                  <MDBBtn color='primary' type='submit' className='w-50'>Enviar</MDBBtn>
                 </div>
               </form>
             </div>

@@ -1,4 +1,5 @@
 const userControl = {};
+const passport = require('passport');
 const userModel = require('../models/users.models.js');
 
 userControl.getUsers = async (req, res) => {
@@ -18,6 +19,12 @@ userControl.createUser = async (req, res) => {
     lastname,
     email,
     password,
+  }, () => {
+    passport.authenticate('signup', {
+      successRedirect: '/',
+      failureRedirect: 'http://localhost:3001/registro',
+      passReqToCallback: true,
+    })
   })
   await newUser.save();
   res.json({message: 'Usuario creado exitosamente!'})

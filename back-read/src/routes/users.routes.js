@@ -12,5 +12,4 @@ router.route('/:id')
   .get(getUser)
   .delete(deleteUser)
 
-
 module.exports = router;
