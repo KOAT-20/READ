@@ -15,7 +15,7 @@ export default class BarNavigation extends Component {
             <MDBNavLink to='/lista_solicitudes'>Solicitudes</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink to='registro_solicitud'>Nueva Solicitud</MDBNavLink>
+            <MDBNavLink to='/registro_solicitud'>Nueva Solicitud</MDBNavLink>
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>

@@ -1,19 +1,17 @@
 import React from 'react';
-import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBIcon } from 'mdbreact';
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  List, ListItem, ListItemText, ListItemIcon, SwipeableDrawer, Divider 
+  ListItem, ListItemText, ListItemIcon, SwipeableDrawer, Divider
 } from '@material-ui/core';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
-  },
-  fullList: {
     width: 'auto',
   },
+  link: {
+    color: 'black',
+  }
 });
 
 export default function NavigationMobile (props) {
@@ -36,23 +34,33 @@ export default function NavigationMobile (props) {
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <MDBNavLink to='/' className={classes.link}>
+        <ListItem button>
+            <ListItemIcon>
+              <MDBIcon icon='home' />
+            </ListItemIcon>
+            <ListItemText>Home</ListItemText>
+        </ListItem>
+      </MDBNavLink>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <MDBNavLink to='/lista_solicitudes' className={classes.link}>
+        <ListItem button>
+          <ListItemIcon>
+            <MDBIcon far icon='list-alt' />
+          </ListItemIcon>
+          <ListItemText>Solicitudes</ListItemText>
+        </ListItem>
+      </MDBNavLink>
+      <Divider />
+      <MDBNavLink to='/registro_solicitud' className={classes.link}>
+        <ListItem button>
+          <ListItemIcon>
+            <MDBIcon far icon='plus-square' />
+          </ListItemIcon>
+          <ListItemText>Nueva Solicitud</ListItemText>
+        </ListItem>
+      </MDBNavLink>
+      <Divider />
     </div>
   );
 
