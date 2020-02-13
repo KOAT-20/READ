@@ -42,7 +42,9 @@ class App extends Component {
       <Router>
         <NavigationMobile modal={this.state.modal14} onModal={this.toggle(14)} />
         <Login modal={this.state.modal14} onModal={this.toggle(14)} />
-
+        <MDBContainer className="mb-5">
+          <Route path='/registro' component={Register} />
+        </MDBContainer>
       </Router>
     );
   }

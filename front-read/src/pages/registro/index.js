@@ -38,7 +38,7 @@ export default class Register extends Component {
   render () {
     return (
       <MDBCol>
-        <MDBCard style={{height:'450px'}}>
+        <MDBCard>
           <MDBCardBody>
             <MDBCardTitle className='text-center mt-3'>Resgistro</MDBCardTitle>
             <div className='grey-text mr-5 ml-5 mt-5'>
@@ -93,7 +93,7 @@ export default class Register extends Component {
                     </MDBCol>
                 </MDBRow>
                 <div className='text-center mt-4'>
-                  <MDBBtn color='primary' type='submit' className='w-50'>Enviar</MDBBtn>
+                  <MDBBtn color='primary' type='submit'>Enviar</MDBBtn>
                 </div>
               </form>
             </div>
