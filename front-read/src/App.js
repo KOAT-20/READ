@@ -5,6 +5,8 @@ import { MDBContainer } from 'mdbreact';
 /* Components */
 import BarNavigation from './components/navigation.js';
 import Login from './components/login.js';
+/* Mobile */
+import NavigationMobile from './components/mobile/navigation.js';
 /* Pages */
 import Register from './pages/registro';
 
@@ -37,9 +39,11 @@ class App extends Component {
       );
     }
     return (
-      <div>
-        como
-      </div>
+      <Router>
+        <NavigationMobile modal={this.state.modal14} onModal={this.toggle(14)} />
+        <Login modal={this.state.modal14} onModal={this.toggle(14)} />
+
+      </Router>
     );
   }
 }
