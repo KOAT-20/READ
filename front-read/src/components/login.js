@@ -14,7 +14,12 @@ export default class Login extends Component {
           size='2x'
         />
         <MDBModal isOpen={this.props.modal} toggle={this.props.onModal} centered>
-          <MDBModalHeader toggle={this.props.onModal}>Sign In</MDBModalHeader>
+          <MDBModalHeader
+            titleClass='font-weight-bold'
+            toggle={this.props.onModal}
+            >
+              Inicio de Sesión
+          </MDBModalHeader>
           <MDBModalBody>
             <form>
               <div className="grey-text ml-5 mr-5 mt-5">
@@ -40,7 +45,7 @@ export default class Login extends Component {
                 </div>
                 <div className="float-right">
                   <MDBBtn color="cyan" type="submit">
-                    Login
+                    Iniciar Sesión
                   </MDBBtn>
                 </div>
               </div>
