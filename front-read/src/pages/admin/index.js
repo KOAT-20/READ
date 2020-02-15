@@ -69,12 +69,19 @@ export default class Admin extends Component {
             users={this.state.users}
           />
         </MDBCol>
-        <MDBCol className='mt-5' lg='12'>
-          <ListUsers
-            users={this.state.users}
-            deleteUser={this.deleteUser}
-          />
-        </MDBCol>
+        {this.state.users.map(user => {
+          return (
+            <MDBCol key={user._id} className='mt-5' lg='4'>
+              <ListUsers
+                firstname={user.firstname}
+                lastname={user.lastname}
+                email={user.email}
+                password={user.password}
+                deleteUser={this.deleteUser}
+              />
+            </MDBCol>
+          )
+        })}
       </MDBRow>
     );
   }
