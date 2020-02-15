@@ -61,6 +61,15 @@ export default function NavigationMobile (props) {
         </ListItem>
       </MDBNavLink>
       <Divider />
+      <MDBNavLink to='/administrador' className={classes.link}>
+        <ListItem button>
+          <ListItemIcon>
+            <MDBIcon icon='user-tie' />
+          </ListItemIcon>
+          <ListItemText>Admin</ListItemText>
+        </ListItem>
+      </MDBNavLink>
+      <Divider />
     </div>
   );
 

@@ -2,17 +2,31 @@ import React, { Component } from 'react';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { MDBContainer } from 'mdbreact';
+import axios from 'axios';
 /* Components */
 import BarNavigation from './components/navigation.js';
 import Login from './components/login.js';
 /* Mobile */
 import NavigationMobile from './components/mobile/navigation.js';
 /* Pages */
-import Register from './pages/registro';
+import Admin from './pages/admin';
 
 class App extends Component {
   state = {
-    modal14: false
+    modal14: false,
+    users: [],
+  }
+
+  async componentDidMount () {
+    this.getUsers();
+  }
+
+  getUsers = async () => {
+    const res = await axios.get('http://localhost:3000/api/users');
+    this.setState ({
+      users: res.data
+    })
+    // console.log('Usuarios:', res.data);
   }
 
   toggle = nr => () => {
@@ -29,11 +43,16 @@ class App extends Component {
           <BarNavigation modal={this.state.modal14} onModal={this.toggle(14)} />
           <Login modal={this.state.modal14} onModal={this.toggle(14)} />
           <MDBContainer className="mt-5 mb-5">
-            {/* <div className='text-center'>
-              <img src='https://mdbootstrap.com/img/Others/documentation/1.jpg' className='img-fluid' />
-            </div> */}
-            <Route exact path='/' />
-            <Route path='/registro' component={Register} />
+            <Route exact path='/'>
+            <div>
+              {this.state.users.map(user => {
+                return (
+                  <div key={user._id}>{user.lastname}</div>
+                )
+              })}
+            </div>
+            </Route>
+            <Route path='/administrador' component={Admin} />
           </MDBContainer>
         </Router>
       );
@@ -43,7 +62,16 @@ class App extends Component {
         <NavigationMobile modal={this.state.modal14} onModal={this.toggle(14)} />
         <Login modal={this.state.modal14} onModal={this.toggle(14)} />
         <MDBContainer className="mb-5">
-          <Route path='/registro' component={Register} />
+          <Route exact path='/'>
+          <div>
+            {this.state.users.map(user => {
+              return (
+                <div key={user._id}>{user.lastname}</div>
+              )
+            })}
+          </div>
+          </Route>
+          <Route path='/administrador' component={Admin} />
         </MDBContainer>
       </Router>
     );

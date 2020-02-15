@@ -19,7 +19,13 @@ export default class BarNavigation extends Component {
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>
-          <MDBNavItem onClick={this.props.onModal}>
+          <MDBNavItem>
+            <MDBNavLink to='/administrador'>Admin</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to='/presidencia'>Presidencia</MDBNavLink>
+          </MDBNavItem>
+          <MDBNavItem onClick={this.props.onModal} className='ml-2'>
             <MDBIcon className='icon_user_login' size='2x' icon='user-circle' />
           </MDBNavItem>
         </MDBNavbarNav>

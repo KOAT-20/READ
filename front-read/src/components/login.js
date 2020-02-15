@@ -40,7 +40,6 @@ export default class Login extends Component {
                   validate
                 />
                 <div className='float-left'>
-                  <a href='/registro'>Registrarse</a><br/>
                   <a href='/'>¿Olvido su contraseña?</a>
                 </div>
                 <div className="float-right">
