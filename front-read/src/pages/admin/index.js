@@ -77,11 +77,10 @@ export default class Admin extends Component {
                 lastname={user.lastname}
                 email={user.email}
                 password={user.password}
-                deleteUser={this.deleteUser}
+                deleteUser={()=> this.deleteUser(user._id)}
               />
             </MDBCol>
-          )
-        })}
+        )})}
       </MDBRow>
     );
   }

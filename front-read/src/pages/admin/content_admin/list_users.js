@@ -7,7 +7,7 @@ export default class ListUsers extends Component {
   render () {
     return (
       <MDBCard>
-        <MDBCardHeader>
+        <MDBCardHeader color='blue'>
           <div className='float-left'>Usuario:</div>
           <div className='float-right'>
             {`${this.props.firstname} ${this.props.lastname}`}
@@ -20,8 +20,10 @@ export default class ListUsers extends Component {
             Clave: {this.props.password}
           </MDBCardText>
         </MDBCardBody>
-        <MDBCardFooter>
+        <MDBCardFooter color='white'>
           <MDBIcon
+            style={{cursor:'pointer'}}
+            onClick={this.props.deleteUser}
             icon='trash-alt'
             className='red-text float-right'
           />

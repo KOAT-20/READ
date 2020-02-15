@@ -6,7 +6,7 @@ import './styles/navigation.scss';
 export default class BarNavigation extends Component {
   render () {
     return (
-      <MDBNavbar color='indigo' dark expand='md' style={{boxShadow:'none'}}>
+      <MDBNavbar color='blue' dark expand='md' style={{boxShadow:'none'}}>
         <MDBNavbarNav left>
           <MDBNavItem>
             <MDBNavLink to='/'>Home</MDBNavLink>
