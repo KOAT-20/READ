@@ -9,7 +9,7 @@ export default class Recepcion extends Component {
       <div>
         <BarRecep />
         <MDBContainer>
-
+          
         </MDBContainer>
       </div>
     );
