@@ -54,11 +54,11 @@ class BarRecep extends Component {
               <Button variant='outlined'>Registro</Button>
             </div>
           </Link>
-          <Link to='/consulta'>
+          {/* <Link to='/consulta'>
             <div className='btn-group ml-2'>
               <Button variant='outlined'>Consulta</Button>
             </div>
-          </Link>
+          </Link> */}
           <Typography
             variant='h6'
             color='inherit'
@@ -88,8 +88,8 @@ class BarRecep extends Component {
                 open={open}
                 onClose={this.handleClose}
               >
-                <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={this.handleClose}>Mi Cuenta</MenuItem>
+                {/* <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
+                <MenuItem onClick={this.handleClose}>Mi Cuenta</MenuItem> */}
                 <Link to='/'>
                   <MenuItem> Cerrar Sesión </MenuItem>
                 </Link>
