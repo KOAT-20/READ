@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
  import { withStyles } from '@material-ui/core/styles';
  import PropTypes from 'prop-types';
+ // import Select from 'react-select';
  import {
    MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody,  MDBIcon, MDBRow,  MDBModal,
    MDBModalHeader,  MDBModalBody, MDBModalFooter, MDBCardHeader, MDBCol
@@ -93,7 +94,7 @@ class Form extends Component {
                </MDBCol>
              </MDBRow>
 
-            <MDBRow className='mt-3 mb-3'>
+            <MDBRow className='mt-4 mb-4'>
               <MDBCol>
                 <MDBCardHeader className='text-center' color='mdb-color'>
                   <h3>
@@ -141,7 +142,7 @@ class Form extends Component {
                 <MDBCardHeader className='text-center' color='mdb-color'>
                   <h3>
                     <b>Envio de Solicitud</b>
-                    <MDBIcon icon="book" className="ml-3" />
+                    <MDBIcon icon="paper-plane" className="ml-3" />
                   </h3>
                 </MDBCardHeader>
                 <MDBCard style={{height:'276px'}}>
