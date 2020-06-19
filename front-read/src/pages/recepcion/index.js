@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer } from 'mdbreact';
+import { MDBContainer, MDBCard, MDBCardBody } from 'mdbreact';
 /* Components */
 import BarRecep from './content/bar_recep.js';
 
@@ -8,8 +8,12 @@ export default class Recepcion extends Component {
     return (
       <div>
         <BarRecep />
-        <MDBContainer>
-          
+        <MDBContainer className='mt-5'>
+          <MDBCard>
+            <MDBCardBody>
+              Listado de solicitudes
+            </MDBCardBody>
+          </MDBCard>
         </MDBContainer>
       </div>
     );
