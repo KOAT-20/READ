@@ -7,4 +7,4 @@ const reasonSchema = new Schema ({
   description_slctd: {type: String, required: true},
 }, , {timestamps: true});
 
-module.exports = model('Comunity', reasonSchema);
+module.exports = model('Reason', reasonSchema);
