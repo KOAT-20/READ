@@ -3,8 +3,8 @@
  import PropTypes from 'prop-types';
  // import Select from 'react-select';
  import {
-   MDBContainer, MDBInput, MDBBtn, MDBCard, MDBCardBody,  MDBIcon, MDBRow,  MDBModal,
-   MDBModalHeader,  MDBModalBody, MDBModalFooter, MDBCardHeader, MDBCol
+   MDBContainer, MDBInput, MDBCard, MDBCardBody,  MDBIcon, MDBRow, MDBCardHeader,
+   MDBCol
  } from 'mdbreact';
  import { Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
  /* Components */
