@@ -42,11 +42,11 @@ class Form extends Component {
      tipo_motivo: [],
    }
 
-   toggle = nr => () => {
-     let modalNumber = 'modal' + nr
-       this.setState({
-       [modalNumber]: !this.state[modalNumber]
+   changeInput = e => {
+     this.setState({
+       [e.target.name]: e.target.value
      });
+     // console.log(`${e.target.name}: ${e.target.value}`);
    }
 
    render () {
@@ -66,12 +66,12 @@ class Form extends Component {
                  </MDBCardHeader>
                  <MDBCard>
                    <MDBCardBody>
-                     <MDBInput id='nombre' type='text' label='Nombre' icon='user' outline />
-                     <MDBInput id='apellido' type='text' label='Apellido' icon='user' outline />
-                     <MDBInput id='cedula' type='number' label='Dni' icon='id-card' outline />
-                     <MDBInput id='edad' type='number' label='Edad' icon='blind' outline />
-                     <MDBInput id='numero_telefono' type='number' label='Teléfono' icon='mobile-alt' outline />
-                     <MDBInput id='correo' type='email' label='Correo' icon='envelope' outline />
+                     <MDBInput name='nombre' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='apellido' type='text' label='Apellido' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='cedula' type='number' label='Dni' icon='id-card' onChange={this.changeInput} outline />
+                     <MDBInput name='edad' type='number' label='Edad' icon='blind' onChange={this.changeInput} outline />
+                     <MDBInput name='numero_telefono' type='number' label='Teléfono' icon='mobile-alt' onChange={this.changeInput} outline />
+                     <MDBInput name='correo' type='email' label='Correo' icon='envelope' onChange={this.changeInput} outline />
                    </MDBCardBody>
                  </MDBCard>
                </MDBCol>
@@ -84,11 +84,11 @@ class Form extends Component {
                  </MDBCardHeader>
                  <MDBCard style={{height:'436px'}}>
                    <MDBCardBody>
-                     <MDBInput id='nombre_comunidad' type='text' label='Nombre' icon='user' outline />
-                     <MDBInput id='estado_comunidad' type='text' label='Nombre' icon='user' outline />
-                     <MDBInput id='municipio_comunidad' type='text' label='Nombre' icon='user' outline />
-                     <MDBInput id='parroquia_comunidad' type='text' label='Nombre' icon='user' outline />
-                     <MDBInput id='codigo_postal' type='text' label='Nombre' icon='user' outline />
+                     <MDBInput name='nombre_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='estado_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='municipio_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='parroquia_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='codigo_postal' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
                    </MDBCardBody>
                  </MDBCard>
                </MDBCol>
@@ -114,7 +114,7 @@ class Form extends Component {
                           <Select
                             className='btn-group'
                             value={this.state.tipo_motivo}
-                            onChange={this.handleChange}
+                            onChange={this.changeInput}
                             inputProps={{
                               name: 'tipo_motivo',
                               id: 'tipo_motivo',
@@ -133,8 +133,8 @@ class Form extends Component {
                         </FormControl>
                       </div>
                     </MDBRow>
-                    <MDBInput id='monto_motivo' type='number' label='Monto a solicitar' icon='money-bill-wave' outline />
-                    <MDBInput id='motivo' type='textarea' label='Describa el motivo' icon='pencil-alt' outline />
+                    <MDBInput name='monto_motivo' type='number' label='Monto a solicitar' icon='money-bill-wave' onChange={this.changeInput} outline />
+                    <MDBInput name='motivo' type='textarea' label='Describa el motivo' icon='pencil-alt' onChange={this.changeInput} outline />
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
@@ -148,10 +148,10 @@ class Form extends Component {
                 <MDBCard style={{height:'276px'}}>
                   <MDBCardBody>
                     <div className='text-center' style={{marginTop:'15%'}}>
-                      <button  className='btn btn-success' type='submit' size='lg' onClick={this.toggle(1)}>
+                      <button  className='btn btn-success' type='submit' size='lg'>
                         Guardar <MDBIcon icon='check' className='ml-2' />
                       </button>
-                      <button className='btn btn-danger' size='lg' onClick={this.toggle(2)}>
+                      <button className='btn btn-danger' size='lg'>
                         Cancelar <MDBIcon far icon='times-circle' className='ml-2' />
                       </button>
                     </div>
