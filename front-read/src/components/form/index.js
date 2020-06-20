@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
- import { withStyles } from '@material-ui/core/styles';
  import PropTypes from 'prop-types';
+ import axios from 'axios';
+ import { withStyles } from '@material-ui/core/styles';
  // import Select from 'react-select';
  import {
    MDBContainer, MDBInput, MDBCard, MDBCardBody,  MDBIcon, MDBRow, MDBCardHeader,
@@ -49,13 +50,41 @@ class Form extends Component {
      // console.log(`${e.target.name}: ${e.target.value}`);
    }
 
+   submitSlctd = async (e) => {
+     e.preventDefault();
+     try {
+       if (this.state.nombre === 0) {
+         console.log('Por favor completa los campos');
+       } else {
+         await axios.post('http://localhost:3000/api/requestsUsers', {
+           nombre: this.state.nombre,
+           apellido: this.state.apellido,
+           cedula: this.state.cedula,
+           edad: this.state.edad,
+           numero_telefono: this.state.numero_telefono,
+           correo: this.state.correo,
+           nombre_comunidad: this.state.nombre_comunidad,
+           estado_comunidad: this.state.estado_comunidad,
+           municipio_comunidad: this.state.municipio_comunidad,
+           parroquia_comunidad: this.state.parroquia_comunidad,
+           codigo_postal: this.state.codigo_postal,
+           monto_motivo: this.state.monto_motivo,
+           motivo: this.state.motivo,
+         });
+         window.alert('Registro existoso!')
+       }
+     } catch (e) {
+
+     }
+   }
+
    render () {
      const { classes } = this.props;
      return (
       <div>
          <BarRecep />
          <MDBContainer className='mt-5'>
-           <form>
+           <form onSubmit={this.submitSlctd}>
              <MDBRow>
                <MDBCol className='h-75'>
                  <MDBCardHeader className='text-center' color='mdb-color'>
@@ -84,11 +113,11 @@ class Form extends Component {
                  </MDBCardHeader>
                  <MDBCard style={{height:'436px'}}>
                    <MDBCardBody>
-                     <MDBInput name='nombre_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
-                     <MDBInput name='estado_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
-                     <MDBInput name='municipio_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
-                     <MDBInput name='parroquia_comunidad' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
-                     <MDBInput name='codigo_postal' type='text' label='Nombre' icon='user' onChange={this.changeInput} outline />
+                     <MDBInput name='nombre_comunidad' type='text' label='Nombre Comunidad' icon='home' onChange={this.changeInput} outline />
+                     <MDBInput name='estado_comunidad' type='text' label='Estado' icon='map-marker-alt' onChange={this.changeInput} outline />
+                     <MDBInput name='municipio_comunidad' type='text' label='Municipio' icon='map-marker-alt' onChange={this.changeInput} outline />
+                     <MDBInput name='parroquia_comunidad' type='text' label='Parroquia' icon='map-marker-alt' onChange={this.changeInput} outline />
+                     <MDBInput name='codigo_postal' type='text' label='Codigo Postal' icon='hashtag' onChange={this.changeInput} outline />
                    </MDBCardBody>
                  </MDBCard>
                </MDBCol>
