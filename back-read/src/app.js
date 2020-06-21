@@ -27,6 +27,6 @@ app.use(session({
 /* Routes */
 app.get('/', (req, res) => res.send('Route Main'))
 app.use('/api/users', require('./routes/users.routes.js'));
-app.use('api/requestsUsers', require('./routes.requests.js'));
+app.use('api/requestsUsers', require('./routes/requests.routes.js'));
 
 module.exports = app;
