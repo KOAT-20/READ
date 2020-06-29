@@ -1,6 +1,6 @@
 'use strict'
 const { Schema, model } = require('mongoose');
-const Reason = model('Reason');
+const Reason = require('./reason.model.js');
 
 const comunitySchema = new Schema ({
   name_comunity: {type: String, required: true},
@@ -9,6 +9,6 @@ const comunitySchema = new Schema ({
   parish_comunity: {type: String, required: true},
   postal_c_comunity: {type: Number, required: true},
   reason: {type: Schema.ObjectId, ref:'Reason'}
-}, , {timestamps: true});
+}, {timestamps: true});
 
 module.exports = model('Comunity', comunitySchema);

@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const {
-  getRequests, getRequest, createRequest, deleteRequest
+  getRequests, createRequest, getRequest, deleteRequest
 } = require('../controllers/requests.controllers.js');
 
 router.route('/')

@@ -1,7 +1,7 @@
 const requestsControl = {};
-const requestsModel = require('../models/applicant.models.js');
-// const comunityModel = require('../models/comunity.models.js');
-// const reasonModel = require('../models/reason.models.js');
+const requestsModel = require('../models/applicant.model.js');
+const comunityModel = require('../models/comunity.model.js');
+const reasonModel = require('../models/reason.model.js');
 
 requestsControl.getRequests = async (req, res) => {
   const requests = await requestsModel.find();
@@ -45,4 +45,4 @@ requestsControl.deleteRequest = async (req, res) => {
   res.json({message: 'Solicitud eliminada!'})
 }
 
-module.exports = userControl;
+module.exports = requestsControl;
