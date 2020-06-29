@@ -15,14 +15,26 @@ requestsControl.getRequest = async (req, res) => {
 
 requestsControl.createRequest = async (req, res) => {
   try {
-    const { name_slc, last_slc, dni_slc, age_slc, phone_slc, email_slc } = req.body;
+    const {
+      name_slc, last_slc, dni_slc, age_slc, phone_slc, email_slc, /* Applicant */
+      name_comunity, state_comunity, mncp_comunity, parish_comunity, postal_c_comunity, /* Comunity */
+      type_slctd, amount_slctd, description_slctd /* Reason */
+    } = req.body;
+    /* Applicant */
     const newRequest = new requestsModel({
-      firstname,
-      lastname,
-      email,
-      password,
+      name_slc, last_slc, dni_slc, age_slc, phone_slc, email_slc
     })
     await newRequest.save();
+    /* Comunity */
+    const newComunity = new comunityModel({
+      name_comunity, state_comunity, mncp_comunity, parish_comunity, postal_c_comunity
+    })
+    await newComunity.save();
+    /* Reason */
+    const newReason = new reasonModel({
+      type_slctd, amount_slctd, description_slctd
+    })
+    await newReason.save();
     res.json({message: 'Solicitud creada exitosamente!'})
   } catch (error) {
     res.json({message: error})
