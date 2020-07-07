@@ -13,6 +13,16 @@ requestsControl.getRequest = async (req, res) => {
   res.json (request);
 }
 
+requestsControl.getComunity = async (req, res) => {
+  const comunity = await comunityModel.findById(req.params.id);
+  res.json (comunity);
+}
+
+requestsControl.getReason = async (req, res) => {
+  const reason = await reasonModel.findById(req.params.id);
+  res.json (reason);
+}
+
 requestsControl.createRequest = async (req, res) => {
   try {
     const {
