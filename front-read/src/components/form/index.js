@@ -53,23 +53,35 @@ class Form extends Component {
    submitSlctd = async (e) => {
      e.preventDefault();
      try {
-       if (this.state.nombre === 0) {
+       if (this.state === '') {
          console.log('Por favor completa los campos');
        } else {
-         await axios.post('http://localhost:3000/api/requestsUsers', {
-           nombre: this.state.nombre,
-           apellido: this.state.apellido,
-           cedula: this.state.cedula,
-           edad: this.state.edad,
-           numero_telefono: this.state.numero_telefono,
-           correo: this.state.correo,
+         await axios.post('http://localhost:3000/api/comunities', {
            nombre_comunidad: this.state.nombre_comunidad,
            estado_comunidad: this.state.estado_comunidad,
            municipio_comunidad: this.state.municipio_comunidad,
            parroquia_comunidad: this.state.parroquia_comunidad,
-           codigo_postal: this.state.codigo_postal,
-           monto_motivo: this.state.monto_motivo,
-           motivo: this.state.motivo,
+         }).then(async comunidad => {
+           console.log(comunidad);
+           await axios.post('http://localhost:3000/api/reasons', {
+             codigo_postal: this.state.codigo_postal,
+             monto_motivo: this.state.monto_motivo,
+             motivo: this.state.motivo,
+           }).then(async motivo => {
+             console.log(motivo);
+             await axios.post('http://localhost:3000/api/applicants', {
+               nombre: this.state.nombre,
+               apellido: this.state.apellido,
+               cedula: this.state.cedula,
+               edad: this.state.edad,
+               numero_telefono: this.state.numero_telefono,
+               correo: this.state.correo,
+               // comunidad.comunity_id,
+               // motivo.reason_id
+             }).then(result => {
+               console.log(result);
+             });
+           });
          });
          window.alert('Registro existoso!')
        }

@@ -1,7 +1,7 @@
 'use strict'
 const { Schema, model } = require('mongoose');
-// const { applicantSchema } = require('./applicant.model.js');
-// const Applicant = model('Applicant', applicantSchema);
+const { reasonSchema } = require('./reason.model.js');
+const Reason = model('Reason', reasonSchema);
 
 const comunitySchema = new Schema ({
   name_comunity: {type: String, required: true},
@@ -9,7 +9,7 @@ const comunitySchema = new Schema ({
   mncp_comunity: {type: String, required: true},
   parish_comunity: {type: String, required: true},
   postal_c_comunity: {type: Number, required: true},
-  // id_applicant: [{type: Schema.ObjectId, ref: Applicant}]
+  reason_id: [{type: Schema.ObjectId, ref: Reason}]
 }, {timestamps: true});
 
 module.exports = model('Comunity', comunitySchema);
