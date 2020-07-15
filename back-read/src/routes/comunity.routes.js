@@ -6,9 +6,9 @@ const {
 
 router.route('/')
   .get(getComunitys)
-  .post(createComunity)
 
 router.route('/:id')
+  .post(createComunity)
   .get(getComunity)
   .delete(deleteComunity)
 

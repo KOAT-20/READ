@@ -10,7 +10,7 @@ const applicantSchema = new Schema ({
   age_slc: {type: Number, required: true},
   phone_slc: {type: Number, required: true},
   email_slc: {type: String, required: true},
-  comunity_id: [{type: Schema.ObjectId, ref: Comunity}]
+  comunity_id: [{type: Schema.Types.ObjectId, ref: Comunity}]
 }, {timestamps: true});
 
 module.exports = model('Applicant', applicantSchema);
